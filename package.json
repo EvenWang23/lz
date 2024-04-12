@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^10.4.0"
+  }
+}
