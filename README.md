@@ -1,0 +1,1 @@
+Some JavaScript tool functions
