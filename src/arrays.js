@@ -1,3 +1,7 @@
+const arrayProto = Array.prototype,
+    nativeSlice = arrayProto.slice
+
+
 /**
  *Get the length of the array.
  * @param {Array} array The array to obtain length.
@@ -57,8 +61,19 @@ function slice(array, start, end) {
     return result
 }
 
+/**
+ *
+ * @param {Array} array
+ * @param {Number} n
+ * @param {Boolean} guard
+ */
+function remove(array, n, guard) {
+    return nativeSlice.call(array, 0, getLength(array) - (n == null || guard ? 1 : n))
+}
+
 export default {
     getLength,
     each,
-    slice
+    slice,
+    remove
 }

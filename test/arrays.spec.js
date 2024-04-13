@@ -12,10 +12,21 @@ describe('arrays', () => {
         let result = 0
         arrays.each([1, 2, 3, 4], num => result += num)
         expect(result).be(10)
+        result = 0
+        arrays.each([1, 2, -1, 4], num => {
+            if (num < 0) return false
+            result += num
+        })
+        expect(result).be(3)
     })
 
     it('slice', () => {
         expect(arrays.slice([1, 2, 3, 4, 5, 6], 0, 3)).eql([1, 2, 3])
         expect(arrays.slice([1, 2, 3, 4, 5, 6], -1, 6)).eql([6])
+    })
+
+    it('remove', () => {
+        expect(arrays.remove([1, 2, 3, 4, 5, 6], 5, true)).eql([1, 2, 3, 4, 5,])
+        expect(arrays.remove([1, 2, 3, 4, 5, 6], 5, false)).eql([1])
     })
 })
