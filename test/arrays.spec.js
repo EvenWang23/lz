@@ -29,4 +29,15 @@ describe('arrays', () => {
         expect(arrays.remove([1, 2, 3, 4, 5, 6], 5, true)).eql([1, 2, 3, 4, 5,])
         expect(arrays.remove([1, 2, 3, 4, 5, 6], 5, false)).eql([1])
     })
+
+    it('arraycopy', () => {
+        const src = [1, 2, 3, 4, 5]
+        const dest = [7, 8, 9, 10, 11]
+
+        arrays.arraycopy(src, 0, dest, 0, dest.length)
+        expect(dest).eql(src)
+
+        arrays.arraycopy(src, 1, dest, 0, dest.length - 1)
+        expect(dest).eql([2, 3, 4, 5, 5])
+    })
 })

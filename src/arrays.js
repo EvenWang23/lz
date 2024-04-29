@@ -3,7 +3,7 @@ const arrayProto = Array.prototype,
 
 
 /**
- *Get the length of the array.
+ * Get the length of the array.
  * @param {Array} array The array to obtain length.
  * @return {number} Returns `array.length`.
  */
@@ -71,9 +71,25 @@ function remove(array, n, guard) {
     return nativeSlice.call(array, 0, getLength(array) - (n == null || guard ? 1 : n))
 }
 
+/**
+ *
+ * @param {Array} src the source array.
+ * @param {Number} srcPos starting position in the source array.
+ * @param {Array} dest the destination array.
+ * @param {Number} destPos starting position in the destination data.
+ * @param {Number} length the number of array elements to be copied.
+ */
+function arraycopy(src, srcPos, dest, destPos, length) {
+    let index = -1
+    while (++index < length) {
+        dest[destPos + index] = src[srcPos + index]
+    }
+}
+
 export default {
     getLength,
     each,
     slice,
-    remove
+    remove,
+    arraycopy
 }
