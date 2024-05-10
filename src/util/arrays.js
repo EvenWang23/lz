@@ -12,7 +12,7 @@ function getLength(array) {
 }
 
 /**
- *
+ * Unlike JavaScript native, if the iteratee returns false, the loop ends
  * @param {Array} array The array to iteratee over.
  * @param {Function} iteratee The function invoked per iteration.
  * @return {Array} Returns `array`
