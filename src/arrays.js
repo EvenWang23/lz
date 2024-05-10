@@ -62,7 +62,8 @@ function slice(array, start, end) {
 }
 
 /**
- *
+ * Delete the last n elements in the array when n is not null or guard is true,
+ * otherwise delete the last element in the array
  * @param {Array} array
  * @param {Number} n
  * @param {Boolean} guard
