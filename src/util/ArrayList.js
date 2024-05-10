@@ -1,8 +1,6 @@
 import arrays from './arrays.js'
 
-/**
- *
- */
+
 class ArrayList {
     #size = 0
     #elementData

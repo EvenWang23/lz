@@ -1,4 +1,4 @@
-import ArrayList from '../src/ArrayList.js'
+import ArrayList from '../src/util/ArrayList.js'
 import expect from 'expect.js'
 
 describe('ArrayList.', () => {

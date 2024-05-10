@@ -1,4 +1,4 @@
-import arrays from '../src/arrays.js'
+import arrays from '../src/util/arrays.js'
 import expect from 'expect.js'
 
 describe('arrays', () => {
