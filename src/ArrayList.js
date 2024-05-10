@@ -1,39 +1,48 @@
 import arrays from './arrays.js'
 
+/**
+ *
+ */
 class ArrayList {
-    constructor() {
-        this.__elementData__ = []
-        this.__size__ = 0
+    #size = 0
+    #elementData
+
+    constructor(initialCapacity = 10) {
+        this.#elementData = Array(initialCapacity)
     }
 
     add(element) {
-        this.__elementData__.push(element)
-        this.__size__++
+        this.#elementData[this.#size++] = element
     }
 
     size() {
-        return this.__size__
+        return this.#size
     }
 
     insert(element, index) {
-        const elementData = this.__elementData__
+        const elementData = this.#elementData
         arrays.arraycopy(elementData, index, elementData, index + 1, this.size() - index)
-        this.__size__++
+        this.#size++
         elementData[index] = element
     }
 
     get(index) {
-        return this.__elementData__[index]
+        return this.#elementData[index]
     }
 
     remove(index) {
-        const elementData = this.__elementData__
-        const s = this.size() - 1
-        const oldValue = elementData[index]
-        delete elementData[index]
-        arrays.arraycopy(elementData, index + 1, elementData, index, s - index)
-        this.__size__--
+        const es = this.#elementData
+        const oldValue = es[index]
+        this.#fastRemove(es, index)
         return oldValue
+    }
+
+    #fastRemove(es, i) {
+        let newSize
+        if ((newSize = this.#size - 1) > i) {
+            arrays.arraycopy(es, i + 1, es, i, newSize - i)
+        }
+        es[this.#size = newSize] = null
     }
 }
 
