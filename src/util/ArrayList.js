@@ -2,34 +2,37 @@ import arrays from './arrays.js'
 
 
 class ArrayList {
-    #size = 0
-    #elementData
 
     constructor(initialCapacity = 10) {
-        this.#elementData = Array(initialCapacity)
+        this.__elementData__ = Array(initialCapacity)
+        this.__size__ = 0
     }
 
     add(element) {
-        this.#elementData[this.#size++] = element
+        this.__elementData__[this.__size__++] = element
     }
 
     size() {
-        return this.#size
+        return this.__size__
+    }
+
+    isEmpty() {
+        return this.__size__ === 0
     }
 
     insert(element, index) {
-        const elementData = this.#elementData
+        const elementData = this.__elementData__
         arrays.arraycopy(elementData, index, elementData, index + 1, this.size() - index)
-        this.#size++
+        this.__size__++
         elementData[index] = element
     }
 
     get(index) {
-        return this.#elementData[index]
+        return this.__elementData__[index]
     }
 
     remove(index) {
-        const es = this.#elementData
+        const es = this.__elementData__
         const oldValue = es[index]
         this.#fastRemove(es, index)
         return oldValue
@@ -37,10 +40,10 @@ class ArrayList {
 
     #fastRemove(es, i) {
         let newSize
-        if ((newSize = this.#size - 1) > i) {
+        if ((newSize = this.__size__ - 1) > i) {
             arrays.arraycopy(es, i + 1, es, i, newSize - i)
         }
-        es[this.#size = newSize] = null
+        es[this.__size__ = newSize] = null
     }
 }
 

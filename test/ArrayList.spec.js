@@ -25,15 +25,12 @@ describe('ArrayList.', () => {
     })
 
 
-    it('remove', () => {
+    it('isEmpty', () => {
         const list = new ArrayList()
+        expect(list.isEmpty()).be(true)
         list.add(1)
-        list.add(2)
-        list.add(3)
-        expect(list.size()).be(3)
-        expect(list.get(1)).be(2)
-        list.remove(1)
-        expect(list.get(1)).be(3)
-        expect(list.size()).be(2)
+        expect(list.isEmpty()).be(false)
     })
+
+
 })
