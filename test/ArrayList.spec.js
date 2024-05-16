@@ -32,5 +32,18 @@ describe('ArrayList.', () => {
         expect(list.isEmpty()).be(false)
     })
 
+    it('contains', () => {
+        const list = new ArrayList()
+        list.add(1)
+        expect(list.contains((e) => e === 1)).be(true)
+        expect(list.contains((e) => e === 2)).be(false)
+    })
+
+    it('indexOf', () => {
+        const list = new ArrayList()
+        list.add(1)
+        expect(list.indexOf((e) => e === 1)).be(0)
+        expect(list.indexOf((e) => e === 2)).be(-1)
+    })
 
 })
