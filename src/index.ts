@@ -1,5 +1,6 @@
 export {
-    isSymbol
+    isSymbol,
+    isNumber
 } from './lang'
 
 export {
