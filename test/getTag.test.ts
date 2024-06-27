@@ -1,32 +1,36 @@
-import getTag from '../src/.internal/getTag'
+import * as _ from '../src'
 
 describe('getTag function', () => {
     test('get null tag', () => {
-        expect(getTag(null)).toBe('[object Null]')
+        expect(_.getTag(null)).toBe('[object Null]')
     })
 
     test('get undefined tag', () => {
-        expect(getTag(undefined)).toBe('[object Undefined]')
+        expect(_.getTag(undefined)).toBe('[object Undefined]')
     })
 
     test('get string tag', () => {
-        expect(getTag('abc')).toBe('[object String]')
+        expect(_.getTag('abc')).toBe('[object String]')
     })
 
     test('get number tag', () => {
-        expect(getTag(13)).toBe('[object Number]')
+        expect(_.getTag(13)).toBe('[object Number]')
     })
 
     test('get object tag', () => {
-        expect(getTag({})).toBe('[object Object]')
+        expect(_.getTag({})).toBe('[object Object]')
     })
 
     test('get array tag', () => {
-        expect(getTag([])).toBe('[object Array]')
+        expect(_.getTag([])).toBe('[object Array]')
     })
 
     test('get function tag', () => {
-        expect(getTag(() => {
+        expect(_.getTag(() => {
         })).toBe('[object Function]')
+    })
+
+    test('get symbol tag', () => {
+        expect(_.getTag(Symbol.for('abc'))).toBe('[object Symbol]')
     })
 })
