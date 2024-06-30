@@ -1,6 +1,7 @@
 export {
     isSymbol,
-    isNumber
+    isLength,
+    isArrayLike
 } from './lang'
 
 export {

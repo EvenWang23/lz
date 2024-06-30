@@ -8,5 +8,15 @@ describe('lang module', () => {
             }
         })
     })
+
+    describe('isLength function', () => {
+        test('should return `true` for lengths', () => {
+        })
+    })
+
+    describe('isArrayLike function', () => {
+        test('should return `true` for lengths', () => {
+        })
+    })
 })
 
